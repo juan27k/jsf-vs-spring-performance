@@ -1,5 +1,3 @@
-# jsf-vs-spring-performance
-Comparativa de rendimiento entre arquitectura monolítica (JSF) y microservicios (Spring Boot) bajo pruebas de carga con JMeter.
 # ⚔️ Comparativa de Rendimiento: JSF vs Spring Boot en Clúster
 
 Este repositorio contiene los resultados y configuraciones utilizadas para evaluar el rendimiento de una arquitectura Monolítica (JSF) frente a una arquitectura de Microservicios (Spring Boot) bajo diferentes cargas concurrentes (100 y 1000 hilos).
@@ -25,6 +23,16 @@ Analizar la escalabilidad y eficiencia entre JSF y Spring Boot en un entorno cl�
 | 100   | 44          | 101                 |
 | 1000  | 37          | 462                 |
 
+## 📈 Gráficas comparativas
+
+### 🔹 100 hilos
+
+![Comparativa 100 hilos](screenshots/comparativa_100.png)
+
+### 🔹 1000 hilos
+
+![Comparativa 1000 hilos](screenshots/comparativa_1000.png)
+
 ## 📊 Recursos usados
 
 - Apache JMeter
@@ -39,3 +47,4 @@ Spring Boot muestra una mejor escalabilidad y eficiencia bajo carga alta, con me
 ---
 
 🙌 Gracias por visitar este repositorio. ¡Cualquier feedback o estrella es bienvenida!
+
