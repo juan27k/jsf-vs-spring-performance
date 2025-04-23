@@ -1,0 +1,43 @@
+#### **Clase de conexión (JSF)**
+
+```java
+public class ConexionBD {
+    private static Connection conn;
+
+    public static Connection getConnection() {
+        if (conn == null) {
+            try {
+                String url = "jdbc:mysql://localhost:3306/mi_base_de_datos";
+                String user = "root";
+                String password = "tu_contraseña";
+                conn = DriverManager.getConnection(url, user, password);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return conn;
+    }
+}
+
+Configuración en web.xml (opcional)
+xml
+Copiar
+Editar
+<servlet>
+    <servlet-name>facesServlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <init-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Production</param-value>
+    </init-param>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>facesServlet</servlet-name>
+    <url-pattern>*.xhtml</url-pattern>
+</servlet-mapping>
+Base de datos: MySQL.
+
+Driver JDBC: mysql-connector-java (asegúrate de tenerlo en las dependencias de tu pom.xml o lib).
+
+URL de conexión: Configurada en la clase de conexión.

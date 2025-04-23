@@ -1,0 +1,44 @@
+Conexión a la base de datos en Spring Boot con PostgreSQL
+Spring Boot utiliza Spring Data JPA para gestionar la conexión con la base de datos PostgreSQL a través de Hibernate. En el archivo application.properties se configura la conexión con la base de datos.
+
+Configuración en application.properties
+properties
+Copiar
+Editar
+spring.datasource.url=jdbc:postgresql://localhost:5432/mi_base_de_datos
+spring.datasource.username=usuario
+spring.datasource.password=tu_contraseña
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update
+Entidad JPA (Spring Boot)
+java
+Copiar
+Editar
+@Entity
+public class Producto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nombre;
+    private Double precio;
+
+    // Getters y setters
+}
+Base de datos: PostgreSQL.
+
+ORM: Hibernate/JPA.
+
+Dependencias: Asegúrate de tener spring-boot-starter-data-jpa y postgresql en tu pom.xml.
+
+xml
+Copiar
+Editar
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+</dependency>
