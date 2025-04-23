@@ -1,4 +1,4 @@
-# ⚔️ Comparativa de Rendimiento: JSF vs Spring Boot en Clúster
+# ⚔️ Comparativa de Rendimiento: JSF en ide vs Spring Boot en Docker
 
 Este repositorio contiene los resultados y configuraciones utilizadas para evaluar el rendimiento de una arquitectura Monolítica (JSF) frente a una arquitectura de Microservicios (Spring Boot) bajo diferentes cargas concurrentes (100 y 1000 hilos).
 
