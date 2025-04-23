@@ -2,7 +2,7 @@
 
 Este repositorio contiene los resultados y configuraciones utilizadas para evaluar el rendimiento de una arquitectura Monolítica (JSF) frente a una arquitectura de Microservicios (Spring Boot) bajo diferentes cargas concurrentes (100 y 1000 hilos).
 
-🔗 Ver presentación visual: [Google Site del Proyecto](https://sites.google.com/view/jsfspring/inicio)
+🔗 Ver presentación del informe completo visual: [Google Site del Proyecto](https://sites.google.com/view/jsfspring/inicio)
 
 ## 📌 Objetivo
 
@@ -21,7 +21,7 @@ Analizar la escalabilidad y eficiencia entre JSF y Spring Boot en un entorno cl�
 | Hilos | JSF (req/s) | Spring Boot (req/s) |
 |-------|-------------|---------------------|
 | 100   | 44          | 101                 |
-| 1000  | 37          | 462                 |
+| 1000  | 35          | 462                 |
 
 ## 📊 Recursos usados
 
