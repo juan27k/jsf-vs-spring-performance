@@ -30,6 +30,13 @@ Analizar la escalabilidad y eficiencia entre JSF y Spring Boot en un entorno cl�
 - HTML + CSS básico
 - Google Sites (para presentación visual)
 
+## 🗂 Archivos de Conexión
+
+Las explicaciones sobre cómo realizar la conexión de JSF a MySQL y de Spring Boot a PostgreSQL están disponibles en los siguientes archivos de texto:
+
+- [Conexion JSF a MySQL](docs/conexion_jsf_mysql.txt)
+- [Conexion Spring Boot a PostgreSQL](docs/conexion_spring_postgresql.txt)
+
 ## ✅ Conclusión
 
 Spring Boot muestra una mejor escalabilidad y eficiencia bajo carga alta, con menor consumo de recursos y mayor rendimiento por segundo.
