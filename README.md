@@ -25,13 +25,13 @@ Analizar la escalabilidad y eficiencia entre JSF y Spring Boot en un entorno cl�
 
 ## 📈 Gráficas comparativas
 
-### 🔹 100 hilos
+### 100 hilos
 
-![Comparativa 100 hilos](screenshots/comparativa_100.png)
+![Comparativa 100 hilos](comparativa_100.png)
 
-### 🔹 1000 hilos
+### 1000 hilos
 
-![Comparativa 1000 hilos](screenshots/comparativa_1000.png)
+![Comparativa 1000 hilos](comparativa_1000.png)
 
 ## 📊 Recursos usados
 
