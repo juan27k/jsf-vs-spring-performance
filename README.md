@@ -43,9 +43,47 @@ PostgreSQL como base de datos.
 
 Dos instancias de la app Spring Boot (spring1, spring2).
 
+Volumen de PostgreSQL:
+El old_pgdata está externo y apunta a una carpeta/volume ya creado.
+Si otra persona quiere levantar el proyecto, quizás tenga que crear su propio volumen. Podrías agregar una nota como:
+
+Si el volumen `old_pgdata` no existe en su sistema, pueden comentarlo o reemplazarlo por:
+volumes:
+  - pgdata:/var/lib/postgresql/data
+
+y en `volumes:` definir:
+
+volumes:
+  pgdata:
+(así queda autogestionado en el docker-compose).
+
+
 Nginx como balanceador de carga.
 
 El balanceo se realiza en modo round-robin sobre las instancias de Spring Boot para simular alta disponibilidad y escalabilidad horizontal.
+
+3. Nginx.conf
+También estaría bueno que subas el archivo nginx.conf a tu repo.
+Ejemplo de contenido que deberías tener:
+
+nginx
+events { }
+
+http {
+    upstream spring_backend {
+        server spring1:8080;
+        server spring2:8080;
+    }
+
+    server {
+        listen 80;
+
+        location / {
+            proxy_pass http://spring_backend;
+        }
+    }
+}
+✅ Esto conecta nginx al "cluster" de spring1 y spring2 y balancea las peticiones.
 
 2. Archivos incluidos
 Dockerfile → Construye la imagen de la app Spring Boot.
