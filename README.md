@@ -7,7 +7,7 @@ Este repositorio contiene los resultados y configuraciones utilizadas para evalu
 Analizar la escalabilidad y eficiencia entre JSF y Spring Boot en un entorno clúster, mediante pruebas de estrés con JMeter.
 
 🔧 Estructura del Repositorio
-pruebas/jmeter/ : Archivos .jmx para JMeter.
+pruebas/ : Archivos .jmx para JMeter.
 
 docs/ : Documentación adicional, configuracion Bases de datos y análisis de resultados y tutrial de configuracion para Jmeter.
 
@@ -49,23 +49,17 @@ El balanceo se realiza en modo round-robin sobre las instancias de Spring Boot p
 
 2. Archivos incluidos
 Dockerfile → Construye la imagen de la app Spring Boot.
-
 docker-compose.yml → Levanta todos los servicios necesarios.
-
 nginx.conf → Configura Nginx para balancear entre spring1 y spring2.
 
 3. Instrucciones de Uso
 Compilar el proyecto Spring Boot:
 
-bash
-Copiar
-Editar
+
 mvn clean package
 Levantar el entorno completo:
 
-bash
-Copiar
-Editar
+
 docker-compose up --build
 Acceder a la aplicación:
 
