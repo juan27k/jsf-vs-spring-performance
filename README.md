@@ -9,9 +9,7 @@ Analizar la escalabilidad y eficiencia entre JSF y Spring Boot en un entorno cl�
 🔧 Estructura del Repositorio
 pruebas/jmeter/ : Archivos .jmx para JMeter.
 
-docs/ : Documentación adicional y análisis de resultados y tutrial de configuracion para Jmeter.
-
-screenshots/ : Capturas de pantalla de las gráficas comparativas.
+docs/ : Documentación adicional, configuracion Bases de datos y análisis de resultados y tutrial de configuracion para Jmeter.
 
 docker/ : Archivos Dockerfile, docker-compose.yml y nginx.conf para levantar el entorno Spring Boot + PostgreSQL + Nginx.
 
