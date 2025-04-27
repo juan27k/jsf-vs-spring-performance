@@ -1,20 +1,19 @@
-# ⚔️ Comparativa de Rendimiento: JSF en ide vs Spring Boot en Docker
-
+⚔️ Comparativa de Rendimiento: JSF en IDE vs Spring Boot en Docker
 Este repositorio contiene los resultados y configuraciones utilizadas para evaluar el rendimiento de una arquitectura Monolítica (JSF) frente a una arquitectura de Microservicios (Spring Boot) bajo diferentes cargas concurrentes (100 y 1000 hilos).
 
-🔗 Ver presentación del informe completo visual: [Google Site del Proyecto](https://sites.google.com/view/jsfspring/inicio)
+🔗 Ver presentación visual: [Google Site del Proyecto](https://sites.google.com/view/jsfspring/inicio)
 
-## 📌 Objetivo
-
+📌 Objetivo
 Analizar la escalabilidad y eficiencia entre JSF y Spring Boot en un entorno clúster, mediante pruebas de estrés con JMeter.
 
-## 🔧 Estructura
+🔧 Estructura del Repositorio
+pruebas/jmeter/ : Archivos .jmx para JMeter.
 
-- `pruebas/jmeter/`: Archivos `.jmx` para JMeter.
-- `pruebas/resultados/`: Archivos `.csv` con los resultados brutos.
-- `charts/`: Scripts en JavaScript para visualizar resultados con Chart.js.
-- `docs/`: Documentación adicional y análisis de resultados.
-- `screenshots/`: Capturas de gráficas comparativas.
+docs/ : Documentación adicional y análisis de resultados y tutrial de configuracion para Jmeter.
+
+screenshots/ : Capturas de pantalla de las gráficas comparativas.
+
+docker/ : Archivos Dockerfile, docker-compose.yml y nginx.conf para levantar el entorno Spring Boot + PostgreSQL + Nginx.
 
 ## 🧪 Pruebas realizadas
 
@@ -24,11 +23,9 @@ Analizar la escalabilidad y eficiencia entre JSF y Spring Boot en un entorno cl�
 | 1000  | 35          | 462                 |
 
 ## 📊 Recursos usados
-
 - Apache JMeter
 - Chart.js + ChartDataLabels
 - HTML + CSS básico
-- Google Sites (para presentación visual)
 
 - ## 📈 Gráficas comparativas
 
@@ -39,20 +36,90 @@ Analizar la escalabilidad y eficiencia entre JSF y Spring Boot en un entorno cl�
 ### 1000 hilos
 
 ![Comparativa 1000 hilos](comparativa_1000.png)
+- 
+🐳 Dockerización del Proyecto Spring Boot
+1. Estructura Docker
+El proyecto cuenta con un entorno completo de contenedores:
 
-## 🔌 Conexión a la Base de Datos
+PostgreSQL como base de datos.
 
-Las explicaciones sobre cómo realizar la conexión de JSF a MySQL y de Spring Boot a PostgreSQL están disponibles en los siguientes archivos de texto:
+Dos instancias de la app Spring Boot (spring1, spring2).
 
-- [Conexion JSF a MySQL](docs/conexion_jsf_mysql.txt)
-- [Conexion Spring Boot a PostgreSQL](docs/conexion_spring_postgresql.txt)
+Nginx como balanceador de carga.
 
-## ✅ Conclusión
+El balanceo se realiza en modo round-robin sobre las instancias de Spring Boot para simular alta disponibilidad y escalabilidad horizontal.
 
-Spring Boot muestra una mejor escalabilidad y eficiencia bajo carga alta, con menor consumo de recursos y mayor rendimiento por segundo.
+2. Archivos incluidos
+Dockerfile → Construye la imagen de la app Spring Boot.
 
----
+docker-compose.yml → Levanta todos los servicios necesarios.
+
+nginx.conf → Configura Nginx para balancear entre spring1 y spring2.
+
+3. Instrucciones de Uso
+Compilar el proyecto Spring Boot:
+
+bash
+Copiar
+Editar
+mvn clean package
+Levantar el entorno completo:
+
+bash
+Copiar
+Editar
+docker-compose up --build
+Acceder a la aplicación:
+
+La app estará disponible en: http://localhost:8080
+
+4. Variables de Entorno
+La app Spring Boot utiliza las siguientes variables para la conexión a PostgreSQL:
+
+SPRING_DATASOURCE_URL
+
+SPRING_DATASOURCE_USERNAME
+
+SPRING_DATASOURCE_PASSWORD
+
+Estas variables están configuradas en el archivo docker-compose.yml.
+
+🧪 Pruebas Realizadas
+
+| Hilos | JSF (req/s) | Spring Boot (req/s) |
+|-------|-------------|---------------------|
+| 100   | 44          | 101                 |
+| 1000  | 35          | 462                 |
+
+📊 Recursos Utilizados
+Apache JMeter (para pruebas de estrés)
+
+Chart.js + ChartDataLabels (para visualización de datos)
+
+HTML + CSS básico (para mostrar gráficos)
+
+Google Sites (presentación visual)
+
+📈 Gráficas Comparativas
+100 hilos
+📈 Comparativa rendimiento entre JSF y Spring Boot con 100 hilos.
+
+1000 hilos
+📈 Comparativa rendimiento entre JSF y Spring Boot con 1000 hilos.
+
+🔌 Conexión a la Base de Datos
+Las instrucciones detalladas para la conexión a bases de datos están disponibles en:
+
+docs/conexion-jsf-mysql.txt → Conexión de JSF a MySQL.
+
+docs/conexion-spring-postgresql.txt → Conexión de Spring Boot a PostgreSQL.
+
+✅ Conclusión
+Spring Boot, desplegado en un entorno dockerizado y balanceado, demostró mayor escalabilidad y eficiencia bajo carga alta, con un consumo optimizado de recursos y mayor rendimiento por segundo en comparación con la arquitectura monolítica de JSF.
+
+🙌 ¡Gracias por visitar este repositorio!
+Cualquier ⭐ estrella o feedback será bienvenido.
+¡Seguimos mejorando juntos! 🚀
 
 
-🙌 Gracias por visitar este repositorio. ¡Cualquier feedback o estrella es bienvenida!
 
